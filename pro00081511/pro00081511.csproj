@@ -49,8 +49,12 @@
         <Compile Include="Clases\CLevel.cs" />
         <Compile Include="Clases\CUser.cs" />
         <Compile Include="Clases\JBall.cs" />
+        <Compile Include="Clases\JBallPower.cs" />
         <Compile Include="Clases\JBase.cs" />
+        <Compile Include="Clases\JBasePower.cs" />
         <Compile Include="Clases\JBlock.cs" />
+        <Compile Include="Clases\JBlockPower.cs" />
+        <Compile Include="Clases\JBlockStrength.cs" />
         <Compile Include="CManage.cs" />
         <Compile Include="Form1.cs">
             <SubType>Form</SubType>
@@ -58,6 +62,8 @@
         <Compile Include="Form1.Designer.cs">
             <DependentUpon>Form1.cs</DependentUpon>
         </Compile>
+        <Compile Include="Interfaces\IJBall.cs" />
+        <Compile Include="Interfaces\IJBase.cs" />
         <Compile Include="Interfaces\IJBlock.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,6 +97,15 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
+        <EmbeddedResource Include="Views\VMainView.resx">
+          <DependentUpon>VMainView.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Views\VMasterLevelView.resx">
+          <DependentUpon>VMasterLevelView.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Views\VTableView.resx">
+          <DependentUpon>VTableView.cs</DependentUpon>
+        </EmbeddedResource>
         <None Include="Properties\Settings.settings">
             <Generator>SettingsSingleFileGenerator</Generator>
             <LastGenOutput>Settings.Designer.cs</LastGenOutput>
