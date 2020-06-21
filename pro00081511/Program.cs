@@ -16,7 +16,8 @@ namespace pro00081511
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            CManage.Instance.FormMain = new Form1();
+            Application.Run(CManage.Instance.FormMain);
         }
     }
 }
