@@ -163,8 +163,12 @@ namespace pro00081511.Views
                             && (pictureBox2.Top + Constants.MARGIN_OFF == CManage.Instance.MBlocks[i, j].Bottom))
                         {
                             CManage.Instance.BallY = 8;
-                            CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
-                            ((IJBlock) CManage.Instance.MBlocks[i, j]).Resistence = 0;
+                            ((IJBlock) CManage.Instance.MBlocks[i, j]).takeDamage(
+                                CManage.Instance.PlayerBall.MakeDamage());
+                            if(!((IJBlock)CManage.Instance.MBlocks[i,j]).aLive()){
+                                CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
+                            }
+                            
                             CManage.Instance.PauseGame = true;
                             return;
                         }
@@ -172,16 +176,24 @@ namespace pro00081511.Views
                         && pictureBox2.Right - 2 == CManage.Instance.MBlocks[i,j].Left)
                         {
                             CManage.Instance.BallX = -8;
-                            CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
-                            ((IJBlock) CManage.Instance.MBlocks[i, j]).Resistence = 0;
+                            ((IJBlock) CManage.Instance.MBlocks[i, j]).takeDamage(
+                                CManage.Instance.PlayerBall.MakeDamage());
+                            if(!((IJBlock)CManage.Instance.MBlocks[i,j]).aLive()){
+                                CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
+                            }
+                            
                             CManage.Instance.PauseGame = true;
                             return;
                         }if (((IJBlock)CManage.Instance.MBlocks[i, j]).aLive() 
                              && pictureBox2.Right - 8 == CManage.Instance.MBlocks[i,j].Left)
                         {
                             CManage.Instance.BallX = -8;
-                            CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
-                            ((IJBlock) CManage.Instance.MBlocks[i, j]).Resistence = 0;
+                            ((IJBlock) CManage.Instance.MBlocks[i, j]).takeDamage(
+                                CManage.Instance.PlayerBall.MakeDamage());
+                            if(!((IJBlock)CManage.Instance.MBlocks[i,j]).aLive()){
+                                CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
+                            }
+                            
                             CManage.Instance.PauseGame = true;
                             return;
                         }
@@ -189,8 +201,12 @@ namespace pro00081511.Views
                              && pictureBox2.Right - 8 == CManage.Instance.MBlocks[i,j].Left)
                         {
                             CManage.Instance.BallX = -8;
-                            CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
-                            ((IJBlock) CManage.Instance.MBlocks[i, j]).Resistence = 0;
+                            ((IJBlock) CManage.Instance.MBlocks[i, j]).takeDamage(
+                                CManage.Instance.PlayerBall.MakeDamage());
+                            if(!((IJBlock)CManage.Instance.MBlocks[i,j]).aLive()){
+                                CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
+                            }
+                            
                             CManage.Instance.PauseGame = true;
                             return;
                         }
@@ -199,16 +215,24 @@ namespace pro00081511.Views
                              && pictureBox2.Right  == CManage.Instance.MBlocks[i,j].Right+2)
                         {
                             CManage.Instance.BallX = 8;
-                            CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
-                            ((IJBlock) CManage.Instance.MBlocks[i, j]).Resistence = 0;
+                            ((IJBlock) CManage.Instance.MBlocks[i, j]).takeDamage(
+                                CManage.Instance.PlayerBall.MakeDamage());
+                            if(!((IJBlock)CManage.Instance.MBlocks[i,j]).aLive()){
+                                CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
+                            }
+                            
                             CManage.Instance.PauseGame = true;
                             return;
                         }if (((IJBlock)CManage.Instance.MBlocks[i, j]).aLive() 
                              && pictureBox2.Left + 6  == CManage.Instance.MBlocks[i,j].Right)
                         {
                             CManage.Instance.BallX = 8;
-                            CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
-                            ((IJBlock) CManage.Instance.MBlocks[i, j]).Resistence = 0;
+                            ((IJBlock) CManage.Instance.MBlocks[i, j]).takeDamage(
+                                CManage.Instance.PlayerBall.MakeDamage());
+                            if(!((IJBlock)CManage.Instance.MBlocks[i,j]).aLive()){
+                                CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
+                            }
+                            
                             CManage.Instance.PauseGame = true;
                             return;
                         }
@@ -216,8 +240,12 @@ namespace pro00081511.Views
                             && (pictureBox2.Left + 8 == CManage.Instance.MBlocks[i, j].Right))
                         {
                             CManage.Instance.BallX = 8;
-                            CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
-                            ((IJBlock) CManage.Instance.MBlocks[i, j]).Resistence = 0;
+                            ((IJBlock) CManage.Instance.MBlocks[i, j]).takeDamage(
+                                CManage.Instance.PlayerBall.MakeDamage());
+                            if(!((IJBlock)CManage.Instance.MBlocks[i,j]).aLive()){
+                                CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
+                            }
+                            
                             CManage.Instance.PauseGame = true;
                             return;
                         }
@@ -226,23 +254,27 @@ namespace pro00081511.Views
                             && pictureBox2.Bottom - 5  == CManage.Instance.MBlocks[i,j].Top)
                         {
                             CManage.Instance.BallY = -8;
-                            CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
-                            ((IJBlock) CManage.Instance.MBlocks[i, j]).Resistence = 0;
+                            ((IJBlock) CManage.Instance.MBlocks[i, j]).takeDamage(
+                                CManage.Instance.PlayerBall.MakeDamage());
+                            if(!((IJBlock)CManage.Instance.MBlocks[i,j]).aLive()){
+                                CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
+                            }
                             CManage.Instance.PauseGame = true;
                             return;
                         }
-                        if (((IJBlock)CManage.Instance.MBlocks[i, j]).aLive() 
-                            && pictureBox2.Bottom - 8  == CManage.Instance.MBlocks[i,j].Top)
+                        if(((IJBlock)CManage.Instance.MBlocks[i, j]).aLive() )
                         {
                             CManage.Instance.BallY = -8;
-                            CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
-                            ((IJBlock) CManage.Instance.MBlocks[i, j]).Resistence = 0;
+                            ((IJBlock) CManage.Instance.MBlocks[i, j]).takeDamage(
+                                CManage.Instance.PlayerBall.MakeDamage());
+                            if(!((IJBlock)CManage.Instance.MBlocks[i,j]).aLive()){
+                                CManage.Instance.Current.Controls.Remove(CManage.Instance.MBlocks[i,j]);
+                            }
+                            
                             CManage.Instance.PauseGame = true;
                             return;
+                            
                         }
-                        CManage.Instance.PauseGame = true;
-                        
-                        return;
                     }
                 }
                 
