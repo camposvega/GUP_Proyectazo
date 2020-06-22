@@ -18,6 +18,7 @@ namespace pro00081511
         private int dimensionX = 7;
         private int dimensionY = 3;
         private CLevel currentLevel;
+        private CUser user; 
 
     private CManage()
         {
@@ -111,6 +112,12 @@ namespace pro00081511
         {
             get => mBlocks;
             set => mBlocks = value;
+        }
+
+        public CUser User
+        {
+            get => user;
+            set => user = value;
         }
     }
 }

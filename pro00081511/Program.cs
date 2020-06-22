@@ -16,8 +16,12 @@ namespace pro00081511
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            CManage.Instance.User = new CUser();
+            CManage.Instance.User.Username = Prompt.ShowDialog("UserName", "Username");
             CManage.Instance.FormMain = new Form1();
+            
             Application.Run(CManage.Instance.FormMain);
+            
         }
     }
 }

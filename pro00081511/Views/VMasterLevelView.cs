@@ -26,7 +26,11 @@ namespace pro00081511.Views
 
         private void VMasterLevelView_KeyDown(object sender, KeyEventArgs e)
         {
-            moverPlayerBase(sender,e);
+            if ((!CManage.Instance.StartGame && !CManage.Instance.PauseGame) ||
+                (CManage.Instance.StartGame && CManage.Instance.PauseGame))
+            {
+                moverPlayerBase(sender,e);
+            }
             if (!CManage.Instance.StartGame)
             {
                 moverPelotaIni(sender,e);

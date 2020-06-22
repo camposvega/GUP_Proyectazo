@@ -70,6 +70,7 @@
         <Compile Include="Interfaces\IJBase.cs" />
         <Compile Include="Interfaces\IJBlock.cs" />
         <Compile Include="Program.cs" />
+        <Compile Include="Prompt.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Views\VMainView.cs">
           <SubType>UserControl</SubType>
