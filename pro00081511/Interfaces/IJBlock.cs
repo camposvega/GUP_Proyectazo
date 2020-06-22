@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace pro00081511
 {
-    public interface IJBlock
+    public interface IJBlock 
     {
+        
         String Type { get; set; }
         int Resistence { get; set; }
         String Style { get; set; }
 
-        void takeDamage(int damage);
+        
+        int takeDamage(int damage);
 
         bool aLive();
     }

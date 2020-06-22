@@ -12,12 +12,14 @@ namespace pro00081511.Views
             
             CManage.Instance.PlayerBase = new JBase();
             CManage.Instance.PlayerBall = new JBall();
+            CManage.Instance.CurrentLevel = new CLevel();
         }
 
         private void VMasterLevelView_Load(object sender, EventArgs e)
         {
             loadBase();
             loadBall();
+            loadBlocks();
             timer1.Start();
 
         }
@@ -51,6 +53,14 @@ namespace pro00081511.Views
             pictureBox2.Left = CManage.Instance.PlayerBall.StartX;
         }
 
+        private void loadBlocks()
+        {
+            //JBlock bl = new JBlock(0,0);
+
+            CManage.Instance.createBlocks();
+
+        }
+
         private void VMasterLevelView_KeyPress(object sender, KeyPressEventArgs e)
         {
             //MessageBox.Show(e.KeyChar.ToString());
@@ -63,7 +73,7 @@ namespace pro00081511.Views
                 //MessageBox.Show(pictureBox1.Left.ToString());
                 if (pictureBox1.Left < 512  - pictureBox1.Width - 16)
                 {
-                    pictureBox1.Left = pictureBox1.Left + 4;   
+                    pictureBox1.Left = pictureBox1.Left + 8;   
                 }
                 else
                 {
@@ -78,7 +88,7 @@ namespace pro00081511.Views
                 //MessageBox.Show(pictureBox1.Left.ToString());
                 if (pictureBox1.Left > 0 )
                 {
-                    pictureBox1.Left = pictureBox1.Left - 4;    
+                    pictureBox1.Left = pictureBox1.Left - 8;    
                 }
                 
             }
@@ -137,6 +147,8 @@ namespace pro00081511.Views
                 CManage.Instance.BallY = -8;
                 return;
             }
+            
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)

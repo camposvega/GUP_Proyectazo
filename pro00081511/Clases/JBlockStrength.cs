@@ -1,32 +1,34 @@
-﻿namespace pro00081511
+﻿using System.Windows.Forms;
+
+namespace pro00081511
 {
-    public class JBlockStrength : IJBlock
+    public class JBlockStrength : PictureBox, IJBlock
     {
         public string Type { get; set; }
         public int Resistence { get; set; }
         public string Style { get; set; }
 
-        public JBlockStrength(string type="", int resistence = 12, string style="")
+        public JBlockStrength(int x,int y,string type = "1", int resistence = 8, string style = "../../images/3.png", 
+            int width = Constants.BLOCK_DX, int heigth = Constants.BLOCK_DY) : base()
         {
+            Height = heigth;
+            Width = width;
+            Top = y;
+            Left = x;
+            
             Type = type;
             Resistence = resistence;
             Style = style;
         }
 
-        public void takeDamage(int damage)
+        public int takeDamage(int damage)
         {
-            int dmg = damage / 2;
-            Resistence = Resistence - dmg;
+            throw new System.NotImplementedException();
         }
 
         public bool aLive()
         {
-            if (Resistence < 0)
-            {
-                return false;
-            }
-
-            return true;
+            throw new System.NotImplementedException();
         }
     }
 }

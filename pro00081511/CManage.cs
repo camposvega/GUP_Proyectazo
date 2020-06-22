@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace pro00081511
 {
@@ -13,6 +14,10 @@ namespace pro00081511
         private IJBall playerBall;
         private int ballX = 8;
         private int ballY = -8;
+        private PictureBox[,] mBlocks;
+        private int dimensionX = 7;
+        private int dimensionY = 4;
+        private CLevel currentLevel;
 
     private CManage()
         {
@@ -28,6 +33,12 @@ namespace pro00081511
                 }
                 return instance;
             }
+        }
+
+        public void createBlocks()
+        {
+            mBlocks = currentLevel.showLevel(new PictureBox[dimensionX,dimensionY], 
+                current, dimensionX, dimensionY);
         }
 
         public Form1 FormMain
@@ -76,6 +87,12 @@ namespace pro00081511
         {
             get => pauseGame;
             set => pauseGame = value;
+        }
+
+        public CLevel CurrentLevel
+        {
+            get => currentLevel;
+            set => currentLevel = value;
         }
     }
 }
