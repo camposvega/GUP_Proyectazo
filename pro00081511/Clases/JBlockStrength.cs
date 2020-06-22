@@ -8,7 +8,7 @@ namespace pro00081511
         public int Resistence { get; set; }
         public string Style { get; set; }
 
-        public JBlockStrength(int x,int y,string type = "1", int resistence = 8, string style = "../../images/3.png", 
+        public JBlockStrength(int x,int y,string type = "1", int resistence = 12, string style = "../../images/3.png", 
             int width = Constants.BLOCK_DX, int heigth = Constants.BLOCK_DY) : base()
         {
             Height = heigth;
@@ -28,7 +28,12 @@ namespace pro00081511
 
         public bool aLive()
         {
-            throw new System.NotImplementedException();
+            if (Resistence <= 0)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

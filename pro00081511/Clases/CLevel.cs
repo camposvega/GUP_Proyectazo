@@ -62,6 +62,8 @@ namespace pro00081511
                         mBlocks[i, j].BackgroundImage = Image.FromFile(((IJBlock)mBlocks[i,j]).Style);
                         mBlocks[i, j].BackgroundImageLayout = ImageLayout.Stretch;  
                     }
+
+                    //mBlocks[i, j].Margin = [0,0,0,0];
                     current.Controls.Add(mBlocks[i,j]);
                 }
             }

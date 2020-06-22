@@ -50,6 +50,7 @@ namespace pro00081511.Views
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(140, 310);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.TabIndex = 1;

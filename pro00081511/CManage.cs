@@ -16,7 +16,7 @@ namespace pro00081511
         private int ballY = -8;
         private PictureBox[,] mBlocks;
         private int dimensionX = 7;
-        private int dimensionY = 4;
+        private int dimensionY = 3;
         private CLevel currentLevel;
 
     private CManage()
@@ -93,6 +93,24 @@ namespace pro00081511
         {
             get => currentLevel;
             set => currentLevel = value;
+        }
+
+        public int DimensionX
+        {
+            get => dimensionX;
+            set => dimensionX = value;
+        }
+
+        public int DimensionY
+        {
+            get => dimensionY;
+            set => dimensionY = value;
+        }
+
+        public PictureBox[,] MBlocks
+        {
+            get => mBlocks;
+            set => mBlocks = value;
         }
     }
 }

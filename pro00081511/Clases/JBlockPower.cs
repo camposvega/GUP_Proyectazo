@@ -28,7 +28,12 @@ namespace pro00081511
 
         public bool aLive()
         {
-            throw new System.NotImplementedException();
+            if (Resistence <= 0)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace pro00081511
 
         public bool aLive()
         {
-            if (Resistence < 0)
+            if (Resistence <= 0)
             {
                 return false;
             }
