@@ -8,3 +8,6 @@ Para comenzar a jugar Click en la pantalla y espacio
 
 para mover jugador A,D
 para pausar espacio.
+
+pass 1234
+port 5432

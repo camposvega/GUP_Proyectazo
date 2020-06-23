@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace pro00081511
@@ -16,9 +17,10 @@ namespace pro00081511
         private int ballY = -8;
         private PictureBox[,] mBlocks;
         private int dimensionX = 7;
-        private int dimensionY = 3;
+        private int dimensionY = 4;
         private CLevel currentLevel;
-        private CUser user; 
+        private CUser user;
+        private List<PictureBox> healts;
 
     private CManage()
         {
@@ -33,6 +35,22 @@ namespace pro00081511
                     instance = new CManage();
                 }
                 return instance;
+            }
+        }
+
+        public void healtUser()
+        {
+            for (int i = 0; i < user.Healt; i++)
+            {
+                healts.Add(new PictureBox());
+                healts[i].BackgroundImage = Image.FromFile("../../images/heart.png");
+                healts[i].BackgroundImageLayout = ImageLayout.Stretch; 
+                healts[i].Width = Constants.HEART_WIDTH_HEIGTH;
+                healts[i].Height = Constants.HEART_WIDTH_HEIGTH;
+                healts[i].Top = 0;
+                healts[i].Left = i * Constants.HEART_WIDTH_HEIGTH + 4;
+                current.Controls.Add(healts[i]);
+                
             }
         }
 
@@ -118,6 +136,12 @@ namespace pro00081511
         {
             get => user;
             set => user = value;
+        }
+
+        public List<PictureBox> Healts
+        {
+            get => healts;
+            set => healts = value;
         }
     }
 }

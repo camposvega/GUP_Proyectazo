@@ -72,7 +72,6 @@ namespace pro00081511.Views
             this.Size = new System.Drawing.Size(512, 512);
             this.Load += new System.EventHandler(this.VMasterLevelView_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VMasterLevelView_KeyDown);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VMasterLevelView_KeyPress);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
