@@ -1,0 +1,32 @@
+--Creacion de Tablas.
+
+CREATE TABLE public.pro_user
+(
+    id_user integer NOT NULL DEFAULT nextval('pro_user_id_user_seq'::regclass),
+    username character varying(32) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT pro_user_pkey PRIMARY KEY (id_user),
+    CONSTRAINT pro_user_username_key UNIQUE (username)
+)
+
+CREATE TABLE public.pro_score
+(
+    id_score integer NOT NULL DEFAULT nextval('pro_score_id_score_seq'::regclass),
+    id_user integer NOT NULL,
+    score integer NOT NULL,
+    CONSTRAINT pro_score_pkey PRIMARY KEY (id_score)
+)
+
+--Foraneas
+
+alter table pro_score add foreign key (id_user) references pro_user (id_user);
+
+--Usadas en el programa.
+
+-- guardar score
+INSERT INTO PRO_SCORE (ID_USER, SCORE) SELECT ID_USER, '{score}' FROM PRO_USER WHERE USERNAME = '{username}'
+
+--Crear usuario
+INSERT INTO PRO_USER (USERNAME) VALUES ('{username}')
+
+--Ver Puntajes
+SELECT a.username, b.score FROM PRO_score b inner join pro_user a on b.id_user = a.id_user order by b.score desc limit 10
