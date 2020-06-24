@@ -7,6 +7,7 @@ namespace pro00081511.Views
 {
     public partial class VMasterLevelView : UserControl
     {
+        private String lastKey = "";
         public VMasterLevelView()
         {
             InitializeComponent();
@@ -18,6 +19,8 @@ namespace pro00081511.Views
 
         private void VMasterLevelView_Load(object sender, EventArgs e)
         {
+            BackgroundImage = Image.FromFile("../../images/gameBG.jpeg");
+            BackgroundImageLayout = ImageLayout.Stretch;
             CManage.Instance.User.Healt = Constants.HEART_NUMBER;
             CManage.Instance.Healts = new List<PictureBox>();
             loadBase();
@@ -46,6 +49,7 @@ namespace pro00081511.Views
         {
             pictureBox1.BackgroundImage = Image.FromFile(CManage.Instance.PlayerBase.Style);
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.BackColor = Color.FromArgb(45, 47, 124);
             pictureBox1.Top = CManage.Instance.PlayerBase.StartY;
             pictureBox1.Left = CManage.Instance.PlayerBase.StartX;
         }
@@ -56,6 +60,7 @@ namespace pro00081511.Views
             pictureBox2.Width = CManage.Instance.PlayerBall.Width;
             pictureBox2.Height = CManage.Instance.PlayerBall.Heigth;
             pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.BackColor = Color.FromArgb(45, 47, 124);
             pictureBox2.Top = CManage.Instance.PlayerBall.StartY;
             pictureBox2.Left = pictureBox1.Left + (pictureBox1.Bounds.Width / 2)
                                - (pictureBox2.Bounds.Width/2);
@@ -76,13 +81,8 @@ namespace pro00081511.Views
                 //MessageBox.Show(pictureBox1.Left.ToString());
                 if (pictureBox1.Left < 512  - pictureBox1.Width - 16)
                 {
-                    pictureBox1.Left = pictureBox1.Left + 16;   
-                }
-                else
-                {
-                    //MessageBox.Show(pictureBox1.Left.ToString());
-                    //MessageBox.Show(pictureBox1.Left.ToString() + pictureBox1.Width.ToString()); 
-                    //MessageBox.Show(pictureBox1.Width.ToString());
+                    pictureBox1.Left = pictureBox1.Left + 16;
+                    lastKey = "d";
                 }
             }
             
@@ -91,7 +91,8 @@ namespace pro00081511.Views
                 //MessageBox.Show(pictureBox1.Left.ToString());
                 if (pictureBox1.Left > 0 )
                 {
-                    pictureBox1.Left = pictureBox1.Left - 16;    
+                    pictureBox1.Left = pictureBox1.Left - 16; 
+                    lastKey = "a";
                 }
                 
             }
@@ -168,13 +169,12 @@ namespace pro00081511.Views
                 {
                     CManage.Instance.FormMain.TableLayoutPanel1.Controls.Remove(this);
                     CManage.Instance.Current = new VMainView();
-                    //CManager.Instance.cambiarStrBtn(((Login)current).Button1,"Guardar");
-                    //CManager.Instance.cambiarReadO(((Login)current).TextBox1, true);
+                    
                     CManage.Instance.FormMain.TableLayoutPanel1.Controls.Add(CManage.Instance.Current,0,0);
-                    CManage.Instance.FormMain.TableLayoutPanel1.SetColumnSpan(CManage.Instance.Current,1); 
+                    CManage.Instance.FormMain.TableLayoutPanel1.SetColumnSpan(CManage.Instance.Current,1);
+                    CManage.Instance.saveScore(CManage.Instance.User.Score);
                 }
                 
-
             }
             
         }
@@ -218,6 +218,8 @@ namespace pro00081511.Views
             if (pictureBox2.Bounds.IntersectsWith(pictureBox1.Bounds))
             {
                 CManage.Instance.BallY = -Constants.BALL_MOVEMENT;
+                CManage.Instance.BallX = lastKey.Equals("d") ? 
+                    Constants.BALL_MOVEMENT : -Constants.BALL_MOVEMENT;
                 return true;
             }
 
@@ -344,6 +346,16 @@ namespace pro00081511.Views
                     }
                 }
                 
+            }
+        }
+        
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000; // WS_EX_COMPOSITED       
+                return handleParam;
             }
         }
         

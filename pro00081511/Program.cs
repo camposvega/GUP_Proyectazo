@@ -17,7 +17,9 @@ namespace pro00081511
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             CManage.Instance.User = new CUser();
-            CManage.Instance.User.Username = Prompt.ShowDialog("UserName", "Username");
+            String txt = Prompt.ShowDialog("UserName", "Username");
+            CManage.Instance.User.Username = txt.Equals("") ? "user" : txt;
+            CManage.Instance.createUser(txt);
             CManage.Instance.FormMain = new Form1();
             
             Application.Run(CManage.Instance.FormMain);
